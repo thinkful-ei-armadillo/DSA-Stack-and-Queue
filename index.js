@@ -111,10 +111,9 @@ function matchingParentheses(expression){
         else if(!isEmpty(expressionStack) && expression.charAt(i) === ')'){
             expressionStack.pop();
         } 
-        else {
-            console.log('Missing right parens');
+        else if(isEmpty(expressionStack) && expression.charAt(i) === ')'){
+            return false;
         }
-
     }
     if(isEmpty(expressionStack)){
         return true;
@@ -139,7 +138,7 @@ function main(){
     // console.log(is_palindrome('racecar'));
     // console.log(is_palindrome('Tauhida'));
     console.log(matchingParentheses('2 + (5 * 6)'));
-    console.log(matchingParentheses('2 + (5 * 6))'));
+    console.log(matchingParentheses('2 + ((5 * 6)'));
 }
 
 main();
